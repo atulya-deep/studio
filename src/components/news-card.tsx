@@ -93,6 +93,17 @@ export function NewsCard({ article }: NewsCardProps) {
             </DialogHeader>
             <ScrollArea className="h-[50vh] pr-4">
               <div className="prose prose-sm dark:prose-invert max-w-none">
+                 {article.imageUrl && (
+                    <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
+                        <Image
+                            src={article.imageUrl}
+                            alt={article.title}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={article.imageHint}
+                        />
+                    </div>
+                 )}
                  <p className="font-semibold text-foreground">Summary:</p>
                  <p>{article.summary}</p>
                  <Separator className="my-4"/>
