@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import type { NewsArticleWithAnalysis } from "@/types"
@@ -83,13 +83,13 @@ export function NewsCard({ article }: NewsCardProps) {
           <DialogContent className="sm:max-w-3xl">
             <DialogHeader>
               <DialogTitle>{article.title}</DialogTitle>
-              <DialogDescription className="flex items-center gap-4 pt-2">
+              <div className="flex items-center gap-4 pt-2 text-sm text-muted-foreground">
                 <span>{format(new Date(article.date), "PPPP")}</span>
                 <Separator orientation="vertical" className="h-4" />
                 <span>{article.source}</span>
                 <Separator orientation="vertical" className="h-4" />
                 <SentimentIndicator sentiment={article.sentiment.sentiment} />
-              </DialogDescription>
+              </div>
             </DialogHeader>
             <ScrollArea className="h-[50vh] pr-4">
               <div className="prose prose-sm dark:prose-invert max-w-none">
