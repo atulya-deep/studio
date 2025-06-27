@@ -92,7 +92,7 @@ export function NewsCard({ article }: NewsCardProps) {
               </div>
             </DialogHeader>
             <ScrollArea className="h-[50vh] pr-4">
-              <div className="prose prose-sm dark:prose-invert max-w-none">
+              <article className="prose dark:prose-invert max-w-none">
                  {article.imageUrl && (
                     <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
                         <Image
@@ -104,12 +104,12 @@ export function NewsCard({ article }: NewsCardProps) {
                         />
                     </div>
                  )}
-                 <p className="font-semibold text-foreground">Summary:</p>
+                 <h3>Summary</h3>
                  <p>{article.summary}</p>
-                 <Separator className="my-4"/>
-                 <p className="font-semibold text-foreground">Full Article:</p>
+                 <hr className="my-4"/>
+                 <h3>Full Article</h3>
                 <p>{article.content}</p>
-              </div>
+              </article>
             </ScrollArea>
             <div className="flex justify-end">
               <Button asChild variant="link" className="text-accent-foreground">
