@@ -1,0 +1,91 @@
+import type { NewsArticle } from '@/types';
+
+function getPastDate(days: number): string {
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  return date.toISOString();
+}
+
+export const mockNewsData: NewsArticle[] = [
+  {
+    id: 'basf-1',
+    competitor: 'BASF',
+    title: 'BASF Announces Breakthrough in Sustainable Plastics',
+    content: 'BASF, a leading chemical company, has announced a significant breakthrough in the development of sustainable plastics. The new polymer, derived from renewable resources, is fully biodegradable and is expected to revolutionize the packaging industry. This innovation is part of BASF\'s commitment to a circular economy and reducing plastic waste. The company plans to scale up production over the next two years, with initial partnerships with major consumer goods companies already in place. This move is seen by analysts as a major step forward for green chemistry and could give BASF a significant edge in the market.',
+    source: 'Chemical Engineering News',
+    url: 'https://example.com/basf-news-1',
+    date: getPastDate(2),
+  },
+  {
+    id: 'basf-2',
+    competitor: 'BASF',
+    title: 'BASF Reports Strong Q3 Earnings, Beating Expectations',
+    content: 'BASF has reported third-quarter earnings that surpassed analyst expectations, driven by strong demand in its agricultural and materials segments. The company\'s CEO expressed optimism for the remainder of the year, citing robust market conditions and successful cost-management strategies. The positive results have led to a surge in BASF\'s stock price. Despite global supply chain challenges, the company has managed to maintain its production levels and meet customer demand effectively.',
+    source: 'Financial Times',
+    url: 'https://example.com/basf-news-2',
+    date: getPastDate(10),
+  },
+    {
+    id: 'basf-3',
+    competitor: 'BASF',
+    title: 'Regulatory Hurdles Delay BASF Plant Expansion in Asia',
+    content: 'BASF is facing unexpected regulatory delays for its planned plant expansion in Southeast Asia. Local environmental agencies have requested further impact studies, pushing the project timeline back by at least six months. A company spokesperson stated they are working closely with authorities to resolve the issues but acknowledged the setback could impact their regional growth strategy. Investors have shown some concern, with a slight dip in stock value following the announcement.',
+    source: 'Reuters',
+    url: 'https://example.com/basf-news-3',
+    date: getPastDate(5),
+  },
+  {
+    id: 'ems-1',
+    competitor: 'EMS',
+    title: 'EMS-GRIVORY Expands Production of High-Performance Polymers',
+    content: 'EMS-GRIVORY, a business unit of the EMS Group, has announced an expansion of its production capacity for high-performance polyamide specialties. The investment aims to meet the growing demand from the automotive and electronics industries for lightweight, durable materials. The new production line will be located at their main facility in Switzerland and is expected to be operational by early next year. This expansion solidifies EMS\'s position as a key supplier of advanced materials.',
+    source: 'Plastics Today',
+    url: 'https://example.com/ems-news-1',
+    date: getPastDate(3),
+  },
+  {
+    id: 'ems-2',
+    competitor: 'EMS',
+    title: 'EMS Group Faces Scrutiny Over Labor Practices',
+    content: 'The EMS Group is currently under investigation following allegations of poor labor practices at one of its international subsidiaries. A report by a workers\' rights organization has raised concerns about working hours and safety standards. The company has issued a statement saying it takes the allegations seriously and has launched an internal audit. The news has cast a shadow on the company\'s corporate social responsibility record.',
+    source: 'The Guardian',
+    url: 'https://example.com/ems-news-2',
+    date: getPastDate(15),
+  },
+  {
+    id: 'ems-3',
+    competitor: 'EMS',
+    title: 'EMS Chemical Reports Stable Growth in a Volatile Market',
+    content: 'EMS Chemical has released its semi-annual report, indicating stable but modest growth. The company noted that while some sectors saw reduced demand, their specialty chemicals division performed as expected. The report offers a neutral outlook, highlighting the company\'s resilience but also acknowledging the challenging global economic climate. No major strategic shifts were announced.',
+    source: 'Industry Week',
+    url: 'https://example.com/ems-news-3',
+    date: getPastDate(8),
+  },
+  {
+    id: 'celanese-1',
+    competitor: 'Celanese',
+    title: 'Celanese Corporation Finalizes Acquisition of Major Mobility & Materials Business',
+    content: 'Celanese Corporation has successfully completed its acquisition of a significant portion of DuPont\'s Mobility & Materials business. The move is expected to create a new powerhouse in the engineering polymers space, with a broader portfolio and enhanced innovation capabilities. The CEO of Celanese hailed the acquisition as a "transformative moment" for the company, promising significant synergies and value creation for shareholders.',
+    source: 'Bloomberg',
+    url: 'https://example.com/celanese-news-1',
+    date: getPastDate(1),
+  },
+  {
+    id: 'celanese-2',
+    competitor: 'Celanese',
+    title: 'Celanese Launches New Eco-Friendly Acetate Product Line',
+    content: 'In a move to bolster its sustainability credentials, Celanese has launched a new product line of eco-friendly acetate materials. These materials are sourced from sustainably managed forests and are biodegradable. The initial launch will target the fashion and textiles industry, where demand for sustainable alternatives is high. This initiative aligns with Celanese\'s long-term sustainability goals and has been well-received by industry partners.',
+    source: 'Sustainable Brands',
+    url: 'https://example.com/celanese-news-2',
+    date: getPastDate(20),
+  },
+  {
+    id: 'celanese-3',
+    competitor: 'Celanese',
+    title: 'Supply Chain Disruptions Impact Celanese Production in Q4',
+    content: 'Celanese has acknowledged that ongoing global supply chain disruptions have impacted its production output for the fourth quarter. In a note to investors, the company stated that raw material shortages and logistical bottlenecks have led to reduced operating rates at several of its facilities. While the company is actively working to mitigate these issues, it has adjusted its Q4 earnings forecast downwards, signaling a potential negative impact on its financial performance.',
+    source: 'Wall Street Journal',
+    url: 'https://example.com/celanese-news-3',
+    date: getPastDate(7),
+  },
+];
