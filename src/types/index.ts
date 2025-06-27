@@ -11,6 +11,8 @@ export interface NewsArticle {
   source: string;
   url: string;
   date: string; // ISO 8601 format
+  imageUrl?: string;
+  imageHint?: string;
 }
 
 export type NewsArticleWithAnalysis = NewsArticle & {

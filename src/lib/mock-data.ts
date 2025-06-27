@@ -15,6 +15,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Chemical Engineering News',
     url: 'https://example.com/basf-news-1',
     date: getPastDate(2),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'sustainable plastic',
   },
   {
     id: 'basf-2',
@@ -24,6 +26,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Financial Times',
     url: 'https://example.com/basf-news-2',
     date: getPastDate(10),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'financial chart',
   },
     {
     id: 'basf-3',
@@ -33,6 +37,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Reuters',
     url: 'https://example.com/basf-news-3',
     date: getPastDate(5),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'factory asia',
   },
   {
     id: 'ems-1',
@@ -42,6 +48,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Plastics Today',
     url: 'https://example.com/ems-news-1',
     date: getPastDate(3),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'polymer structure',
   },
   {
     id: 'ems-2',
@@ -51,6 +59,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'The Guardian',
     url: 'https://example.com/ems-news-2',
     date: getPastDate(15),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'factory workers',
   },
   {
     id: 'ems-3',
@@ -60,6 +70,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Industry Week',
     url: 'https://example.com/ems-news-3',
     date: getPastDate(8),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'market chart',
   },
   {
     id: 'celanese-1',
@@ -69,6 +81,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Bloomberg',
     url: 'https://example.com/celanese-news-1',
     date: getPastDate(1),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'business handshake',
   },
   {
     id: 'celanese-2',
@@ -78,6 +92,8 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Sustainable Brands',
     url: 'https://example.com/celanese-news-2',
     date: getPastDate(20),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'sustainable fashion',
   },
   {
     id: 'celanese-3',
@@ -87,5 +103,7 @@ export const mockNewsData: NewsArticle[] = [
     source: 'Wall Street Journal',
     url: 'https://example.com/celanese-news-3',
     date: getPastDate(7),
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'cargo ship',
   },
 ];

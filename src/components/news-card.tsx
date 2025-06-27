@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import {
   Card,
   CardContent,
@@ -24,7 +25,7 @@ interface NewsCardProps {
 const SentimentIndicator = ({ sentiment }: { sentiment: 'positive' | 'negative' | 'neutral' }) => {
   if (sentiment === 'positive') {
     return (
-      <Badge variant="outline" className="border-green-500/50 text-green-600 dark:text-green-400">
+      <Badge variant="outline" className="border-green-500/50 text-green-600 dark:text-green-400 bg-green-500/10">
         <TrendingUp className="mr-1 h-4 w-4" />
         Positive
       </Badge>
@@ -48,10 +49,21 @@ const SentimentIndicator = ({ sentiment }: { sentiment: 'positive' | 'negative' 
 
 export function NewsCard({ article }: NewsCardProps) {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-md">
+       {article.imageUrl && (
+        <div className="relative aspect-video overflow-hidden">
+          <Image
+            src={article.imageUrl}
+            alt={article.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            data-ai-hint={article.imageHint}
+          />
+        </div>
+      )}
       <CardHeader>
         <div className="flex justify-between items-start gap-2">
-          <CardTitle className="text-lg">{article.title}</CardTitle>
+          <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">{article.title}</CardTitle>
           <div className="flex-shrink-0">
              <SentimentIndicator sentiment={article.sentiment.sentiment} />
           </div>
@@ -61,7 +73,7 @@ export function NewsCard({ article }: NewsCardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        <p className="text-sm text-muted-foreground">{article.summary}</p>
+        <p className="text-sm text-muted-foreground line-clamp-3">{article.summary}</p>
       </CardContent>
       <CardFooter>
         <Dialog>
