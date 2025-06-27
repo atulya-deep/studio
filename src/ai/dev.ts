@@ -1,5 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/analyze-sentiment.ts';
-import '@/ai/flows/summarize-article.ts';
+import '@/ai/flows/analyze-and-summarize-article.ts';

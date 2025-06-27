@@ -1,6 +1,3 @@
-import type { AnalyzeSentimentOutput } from "@/ai/flows/analyze-sentiment";
-import type { SummarizeArticleOutput } from "@/ai/flows/summarize-article";
-
 export type Competitor = "BASF" | "EMS" | "Celanese";
 
 export interface NewsArticle {
@@ -16,8 +13,11 @@ export interface NewsArticle {
 }
 
 export type NewsArticleWithAnalysis = NewsArticle & {
-  summary: SummarizeArticleOutput['summary'];
-  sentiment: AnalyzeSentimentOutput;
+  summary: string;
+  sentiment: {
+    sentiment: "positive" | "negative" | "neutral";
+    confidence: number;
+  };
 };
 
 export type SentimentData = {

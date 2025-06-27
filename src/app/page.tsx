@@ -1,7 +1,6 @@
 import * as React from "react"
 
-import { analyzeSentiment } from '@/ai/flows/analyze-sentiment';
-import { summarizeArticle } from '@/ai/flows/summarize-article';
+import { analyzeAndSummarizeArticle } from '@/ai/flows/analyze-and-summarize-article';
 import { mockNewsData } from "@/lib/mock-data";
 import type { NewsArticleWithAnalysis, Competitor } from "@/types";
 import { MarketVerseDashboard } from "@/components/market-verse-dashboard";
@@ -12,14 +11,14 @@ export default async function Home() {
   const articlesWithAnalysis = await Promise.all(
     mockNewsData.map(async (article): Promise<NewsArticleWithAnalysis> => {
       try {
-        const [summaryResult, sentimentResult] = await Promise.all([
-          summarizeArticle({ articleContent: article.content }),
-          analyzeSentiment(article.content),
-        ]);
+        const result = await analyzeAndSummarizeArticle({ articleContent: article.content });
         return {
           ...article,
-          summary: summaryResult.summary,
-          sentiment: sentimentResult,
+          summary: result.summary,
+          sentiment: {
+            sentiment: result.sentiment,
+            confidence: result.confidence,
+          },
         };
       } catch (error) {
         console.error(`Failed to process article ${article.id}:`, error);
