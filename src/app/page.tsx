@@ -8,29 +8,28 @@ import { PageClientWrapper } from "@/components/page-client-wrapper";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Home() {
-  const articlesWithAnalysis = await Promise.all(
-    mockNewsData.map(async (article): Promise<NewsArticleWithAnalysis> => {
-      try {
-        const result = await analyzeAndSummarizeArticle({ articleContent: article.content });
-        return {
-          ...article,
-          summary: result.summary,
-          sentiment: {
-            sentiment: result.sentiment,
-            confidence: result.confidence,
-          },
-        };
-      } catch (error) {
-        console.error(`Failed to process article ${article.id}:`, error);
-        // Fallback in case of AI error
-        return {
-          ...article,
-          summary: "Summary not available.",
-          sentiment: { sentiment: "neutral", confidence: 0 },
-        };
-      }
-    })
-  );
+  const articlesWithAnalysis: NewsArticleWithAnalysis[] = [];
+  for (const article of mockNewsData) {
+    try {
+      const result = await analyzeAndSummarizeArticle({ articleContent: article.content });
+      articlesWithAnalysis.push({
+        ...article,
+        summary: result.summary,
+        sentiment: {
+          sentiment: result.sentiment,
+          confidence: result.confidence,
+        },
+      });
+    } catch (error) {
+      console.error(`Failed to process article ${article.id}:`, error);
+      // Fallback in case of AI error
+      articlesWithAnalysis.push({
+        ...article,
+        summary: "Summary not available.",
+        sentiment: { sentiment: "neutral", confidence: 0 },
+      });
+    }
+  }
 
   const competitors: Competitor[] = ["BASF", "EMS", "Celanese"];
 
