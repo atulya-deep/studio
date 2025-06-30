@@ -104,11 +104,7 @@ export function NewsCard({ article }: NewsCardProps) {
                         />
                     </div>
                  )}
-                 <h3>Summary</h3>
                  <p>{article.summary}</p>
-                 <hr className="my-4"/>
-                 <h3>Full Article</h3>
-                <p>{article.content}</p>
               </article>
             </ScrollArea>
             <div className="flex justify-end">
