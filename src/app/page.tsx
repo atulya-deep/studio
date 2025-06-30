@@ -19,6 +19,8 @@ export default async function Home() {
           sentiment: result.sentiment,
           confidence: result.confidence,
         },
+        imageUrl: result.imageUrl,
+        imageHint: result.imageHint,
       });
     } catch (error) {
       console.error(`Failed to process article ${article.id}:`, error);
