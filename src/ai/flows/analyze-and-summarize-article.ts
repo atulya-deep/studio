@@ -75,16 +75,22 @@ const analyzeAndSummarizeArticleFlow = ai.defineFlow(
         throw new Error("Failed to get text analysis from AI.");
     }
 
-    const { media } = await ai.generate({
-        model: 'googleai/gemini-2.0-flash-preview-image-generation',
-        prompt: `Generate a photorealistic image of: ${textOutput.imageHint}`,
-        config: {
-            responseModalities: ['TEXT', 'IMAGE'],
-        },
-    });
+    let imageUrl = 'https://placehold.co/600x400.png';
+    try {
+      const { media } = await ai.generate({
+          model: 'googleai/gemini-2.0-flash-preview-image-generation',
+          prompt: `Generate a photorealistic image of: ${textOutput.imageHint}`,
+          config: {
+              responseModalities: ['TEXT', 'IMAGE'],
+          },
+      });
+      if (media?.url) {
+        imageUrl = media.url;
+      }
+    } catch (error) {
+      console.warn(`Image generation failed due to rate limiting for hint "${textOutput.imageHint}". Falling back to placeholder.`);
+    }
     
-    const imageUrl = media?.url || 'https://placehold.co/600x400.png';
-
     return {
         ...textOutput,
         imageUrl,
