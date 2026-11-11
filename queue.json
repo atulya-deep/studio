@@ -1,0 +1,29 @@
+{
+ "account_id": "17841467335458792",
+ "handle": "mind_shap",
+ "raw_base": "https://raw.githubusercontent.com/atulya-deep/studio/reels/",
+ "items": [
+  {
+   "file": "reels/01_zeigarnik.mp4",
+   "topic": "Zeigarnik effect",
+   "status": "posted",
+   "post_on": "2026-11-11",
+   "media_id": "17895839184436628",
+   "permalink": "https://www.instagram.com/reel/Dfm83hujNz3/"
+  },
+  {
+   "file": "reels/02_if_then.mp4",
+   "topic": "Implementation intentions",
+   "status": "approved",
+   "post_on": "2026-11-13",
+   "caption": "Motivation isn't a plan. \"If X happens, then I'll do Y\" is.\n\nPsychologists call these implementation intentions, and they're one of the best-supported tools for building habits.\n\nComment your if-then plan below 👇\n\n#habits #productivity #atomichabits #selfdiscipline #microlearning #psychology #goals #dailyhabits"
+  },
+  {
+   "file": "reels/03_fabian.mp4",
+   "topic": "Fabian strategy",
+   "status": "approved",
+   "post_on": "2026-11-16",
+   "caption": "Rome couldn't beat Hannibal in battle, so Fabius Maximus stopped giving him battles.\n\nThey called him \"the Delayer\" as an insult. History remembers it as strategy.\n\nWhere in your life are you fighting on someone else's terms?\n\n#history #strategy #ancientrome #stoicism #leadership #microlearning #historyfacts #mindset"
+  }
+ ]
+}
