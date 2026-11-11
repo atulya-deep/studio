@@ -4,6 +4,7 @@ import numpy as np, soundfile as sf, cairo
 from chars import *
 from scenes import SCENES, PW, PH
 import animate  # reuse REELS text + narration helpers
+import lessons2  # registers batch 2
 
 W, H, FPS = 1080, 1920, 30
 BG = C("0E1221"); CREAM = C("F6F0E2"); BODY = C("DCD9D2"); MUTED = C("969EB4"); ACC = C("F7B248")
@@ -115,7 +116,7 @@ def build(key, still=None):
     surf = cairo.ImageSurface(cairo.FORMAT_RGB24, W, H); cr = cairo.Context(surf)
     cr.set_antialias(cairo.ANTIALIAS_BEST)
     if still:
-        i, t = still; sc = scenes[i]; draw(cr, sc, t, mouth(sc.t0 + t)); surf.write_to_png(f"{ROOT}/still_{key}_{i}.png"); return
+        i, t = still[0], still[1]; sc = scenes[i]; t = -t * sc.dur if t < 0 else t; draw(cr, sc, t, mouth(sc.t0 + t)); surf.write_to_png(f"{ROOT}/still_{key}_{i}{still[2] if len(still) > 2 else ''}.png"); return
     parts = []
     for i, sc in enumerate(scenes):
         tmp, fin = f"{out}/s{i}.tmp.mp4", f"{out}/s{i}.mp4"

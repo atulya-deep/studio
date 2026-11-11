@@ -24,3 +24,6 @@ execute_action connector=instagram action=create_video_post account=<account_id>
 params: video_url=raw_base+file, caption, share_to_feed=true, thumb_offset=2500
 Then set status=posted, add media_id + permalink (get_data fields media_id, media_permalink, last_3dT), commit and push to branch `reels`.
 Only post items with status=approved. Never post pending items.
+
+## Batch 2 onwards
+New lessons live in `tools/lessons2.py` (text + narration + scene list) with scenes in `tools/scenes2a.py` / `scenes2b.py` and shared props in `tools/kit2.py` (duck, tomato, emu, rat, plane, monitor, bubbles). Add a lesson by adding an entry to `lessons2.L`. Preview all scenes of a lesson with `python3 sheet.py <key>` (writes v3/sheet_<key>.png), then `python3 reel3.py <key>`. Tone: some lessons should have a funny twist.
