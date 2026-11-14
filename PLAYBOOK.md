@@ -27,3 +27,6 @@ Only post items with status=approved. Never post pending items.
 
 ## Batch 2 onwards
 New lessons live in `tools/lessons2.py` (text + narration + scene list) with scenes in `tools/scenes2a.py` / `scenes2b.py` and shared props in `tools/kit2.py` (duck, tomato, emu, rat, plane, monitor, bubbles). Add a lesson by adding an entry to `lessons2.L`. Preview all scenes of a lesson with `python3 sheet.py <key>` (writes v3/sheet_<key>.png), then `python3 reel3.py <key>`. Tone: some lessons should have a funny twist.
+
+## Batch 3 onwards
+Lessons 14+ live in `tools/lessons3.py` with scenes in `tools/scenes3.py` (props: mug/coffee splash, podium, tape recorder, scoreboard, notepad, cheque, clock, steel-mill window, briefcase, submarine, Mediterranean map, photo/ticket/receipt). `reel3.py` and `sheet.py` import it. Keep key visuals out of the panel's bottom-right corner (owl mascot sits there).

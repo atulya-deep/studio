@@ -1,4 +1,4 @@
-import sys, traceback, reel3, lessons2
+import sys, traceback, reel3, lessons2, lessons3
 from PIL import Image
 keys = sys.argv[1:] or list(lessons2.L)
 for key in keys:

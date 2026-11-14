@@ -5,6 +5,7 @@ from chars import *
 from scenes import SCENES, PW, PH
 import animate  # reuse REELS text + narration helpers
 import lessons2  # registers batch 2
+import lessons3  # registers batch 3
 
 W, H, FPS = 1080, 1920, 30
 BG = C("0E1221"); CREAM = C("F6F0E2"); BODY = C("DCD9D2"); MUTED = C("969EB4"); ACC = C("F7B248")
