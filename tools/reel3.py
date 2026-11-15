@@ -6,6 +6,7 @@ from scenes import SCENES, PW, PH
 import animate  # reuse REELS text + narration helpers
 import lessons2  # registers batch 2
 import lessons3  # registers batch 3
+import lessons4  # short-format lessons
 
 W, H, FPS = 1080, 1920, 30
 BG = C("0E1221"); CREAM = C("F6F0E2"); BODY = C("DCD9D2"); MUTED = C("969EB4"); ACC = C("F7B248")
@@ -89,6 +90,7 @@ def draw(cr, sc, t, mouth):
         owl(cr, 910, PY + PH + 40, 190, tg, mouth, look=(-.6, .5))
 
 def build(key, still=None):
+    LEAD, TAIL, animate.SPEED = lessons4.PACE.get(key, (0.45, 0.75, 1.0))
     tag, cards = animate.REELS[key]
     animate.REELS_TAG = tag.upper()
     out = f"{ROOT}/{key}"; os.makedirs(out, exist_ok=True)

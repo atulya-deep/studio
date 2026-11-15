@@ -30,3 +30,6 @@ New lessons live in `tools/lessons2.py` (text + narration + scene list) with sce
 
 ## Batch 3 onwards
 Lessons 14+ live in `tools/lessons3.py` with scenes in `tools/scenes3.py` (props: mug/coffee splash, podium, tape recorder, scoreboard, notepad, cheque, clock, steel-mill window, briefcase, submarine, Mediterranean map, photo/ticket/receipt). `reel3.py` and `sheet.py` import it. Keep key visuals out of the panel's bottom-right corner (owl mascot sits there).
+
+## Short format (preferred from 2026-11-15)
+Owner asked for ~30-second everyday-psychology videos with an attention-grabbing hook. See `tools/lessons4.py` + `scenes4.py` (17_phantom): 4 lesson cards + a short share-prompt end card, ~70 spoken words, loud first second (shake, flashing text), fast pace via `lessons4.PACE[key] = (lead, tail, speech speed)`. Add new short lessons to `lessons4.L`.
