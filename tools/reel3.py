@@ -90,7 +90,7 @@ def draw(cr, sc, t, mouth):
         owl(cr, 910, PY + PH + 40, 190, tg, mouth, look=(-.6, .5))
 
 def build(key, still=None):
-    LEAD, TAIL, animate.SPEED = lessons4.PACE.get(key, (0.45, 0.75, 1.0))
+    LEAD, TAIL, animate.SPEED, animate.VOICE, animate.LANG = (tuple(lessons4.PACE.get(key, (0.45, 0.75, 1.0))) + ('af_heart', 'en-us'))[:5]
     tag, cards = animate.REELS[key]
     animate.REELS_TAG = tag.upper()
     out = f"{ROOT}/{key}"; os.makedirs(out, exist_ok=True)

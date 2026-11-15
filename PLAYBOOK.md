@@ -33,3 +33,6 @@ Lessons 14+ live in `tools/lessons3.py` with scenes in `tools/scenes3.py` (props
 
 ## Short format (preferred from 2026-11-15)
 Owner asked for ~30-second everyday-psychology videos with an attention-grabbing hook. See `tools/lessons4.py` + `scenes4.py` (17_phantom): 4 lesson cards + a short share-prompt end card, ~70 spoken words, loud first second (shake, flashing text), fast pace via `lessons4.PACE[key] = (lead, tail, speech speed)`. Add new short lessons to `lessons4.L`.
+
+## Hinglish test (2026-11-15)
+Owner wants to test Hindi for reach. Agreed style: Hinglish roast tone, mild slang only (abe, bhai, pagal), NO hard gaali. On-screen text in Roman Hinglish; narration `say` in Devanagari with a Hindi voice via `lessons4.HI` pace tuple (lead, tail, speed, voice, lang). Example: 18_raat_2_baje in `lessons4.py` + `scenes5.py`. Owner must listen before posting: audio can't be checked here.

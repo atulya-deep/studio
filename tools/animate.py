@@ -16,7 +16,7 @@ SANS_B = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
 SANS = "/usr/share/fonts/opentype/inter/Inter-Medium.otf"
 if not os.path.exists(SANS): SANS = "/usr/share/fonts/opentype/inter/Inter-Regular.otf"
 TTS = "/home/claude/tts"
-VOICE, SPEED = "af_heart", 1.0
+VOICE, SPEED, LANG = "af_heart", 1.0, "en-us"
 ROOT = "/home/claude/reels/v2"
 
 _fc = {}
@@ -149,7 +149,7 @@ def speak(text, path):
     if _kok is None:
         from kokoro_onnx import Kokoro
         _kok = Kokoro(f"{TTS}/kokoro-v1.0.onnx", f"{TTS}/voices-v1.0.bin")
-    s, sr = _kok.create(text, voice=VOICE, speed=SPEED, lang="en-us")
+    s, sr = _kok.create(text, voice=VOICE, speed=SPEED, lang=LANG)
     # trim leading/trailing silence
     nz = np.where(np.abs(s) > 0.01)[0]
     if len(nz): s = s[max(0, nz[0] - 600): nz[-1] + 1200]
