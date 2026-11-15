@@ -17,7 +17,7 @@ L = {
    ], [S.ph_hook, S.ph_stat, S.ph_why, S.ph_fix], (0.18, 0.38, 1.1)),
 }
 # Hinglish roast-style shorts: on-screen text in Roman Hinglish, narration (say) in Devanagari, Hindi voice.
-HI = (0.15, 0.3, 1.22, "piper:rohan", "hi")
+HI = (0.15, 0.35, 1.08, "piper:rohan", "hi")
 L["18_raat_2_baje"] = ("Roz ki psychology", [
    dict(title="Abe saale, raat ke 2 baje. Neend aa rahi hai. Phir bhi *scroll* kar raha hai. Kyun?", big=True, footer="30 second ka gyaan",
         say="अबे साले, रात के दो बजे हैं। नींद आ रही है। फिर भी स्क्रॉल कर रहा है। क्यों?"),

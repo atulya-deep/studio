@@ -156,7 +156,25 @@ def _piper(text):
     s, sr0 = sf.read(tmp); os.remove(tmp); s = np.asarray(s, dtype=np.float32)
     n = int(len(s) * 24000 / sr0)
     s = np.interp(np.linspace(0, len(s) - 1, n), np.arange(len(s)), s).astype(np.float32)
-    return s / max(1e-6, np.abs(s).max()) * 0.7, 24000
+    s = s / max(1e-6, np.abs(s).max()) * 0.7
+    return _tighten(s, 24000), 24000
+
+def _tighten(s, sr, keep=0.15, thr=0.02):
+    """Shorten every internal pause to `keep` seconds so narration flows instead of stopping after each phrase."""
+    w = int(sr * 0.02); env = np.convolve(np.abs(s), np.ones(w) / w, "same"); q = env < thr
+    out, i, n, k = [], 0, len(s), int(keep * sr)
+    while i < n:
+        j = i
+        if q[i]:
+            while j < n and q[j]: j += 1
+            seg = s[i:j]
+            if len(seg) > k and i > 0 and j < n: seg = np.concatenate([seg[:k // 2], seg[len(seg) - (k - k // 2):]])
+            out.append(seg)
+        else:
+            while j < n and not q[j]: j += 1
+            out.append(s[i:j])
+        i = j
+    return np.concatenate(out).astype(np.float32)
 
 def speak(text, path):
     global _kok
