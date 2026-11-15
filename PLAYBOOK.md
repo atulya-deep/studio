@@ -36,3 +36,5 @@ Owner asked for ~30-second everyday-psychology videos with an attention-grabbing
 
 ## Hinglish test (2026-11-15)
 Owner wants to test Hindi for reach. Agreed style: Hinglish roast tone, mild slang only (abe, bhai, pagal), NO hard gaali. On-screen text in Roman Hinglish; narration `say` in Devanagari with a Hindi voice via `lessons4.HI` pace tuple (lead, tail, speed, voice, lang). Example: 18_raat_2_baje in `lessons4.py` + `scenes5.py`. Owner must listen before posting: audio can't be checked here.
+
+Hindi voice update: Kokoro Hindi sounded unnatural to the owner. Use native Piper Hindi voices instead: `pip install piper-tts`, download `vits-piper-hi_IN-{rohan,pratham,priyamvada}-medium.tar.bz2` from github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/ into /home/claude/tts/hi/, and set the voice to `piper:rohan` (see `animate._piper`). Owner also asked for a small amount of mild abuse (abe saale, gadhe, kamine); still no hard gaali.

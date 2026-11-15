@@ -142,6 +142,22 @@ class Scene:
 
 # ---------- narration ----------
 _kok = None
+_pip = {}
+def _piper(text):
+    """Native Hindi voices (piper-tts; models in /home/claude/tts/hi). VOICE = 'piper:<name>'. Returns 24 kHz audio."""
+    import wave, tempfile
+    from piper import PiperVoice, SynthesisConfig
+    name = VOICE.split(":", 1)[1]
+    if name not in _pip:
+        _pip[name] = PiperVoice.load(f"{TTS}/hi/vits-piper-hi_IN-{name}-medium/hi_IN-{name}-medium.onnx")
+    tmp = tempfile.mktemp(suffix=".wav")
+    with wave.open(tmp, "wb") as w:
+        _pip[name].synthesize_wav(text, w, syn_config=SynthesisConfig(length_scale=1.0 / SPEED))
+    s, sr0 = sf.read(tmp); os.remove(tmp); s = np.asarray(s, dtype=np.float32)
+    n = int(len(s) * 24000 / sr0)
+    s = np.interp(np.linspace(0, len(s) - 1, n), np.arange(len(s)), s).astype(np.float32)
+    return s / max(1e-6, np.abs(s).max()) * 0.7, 24000
+
 def speak(text, path):
     global _kok
     if os.path.exists(path):
@@ -149,7 +165,7 @@ def speak(text, path):
     if _kok is None:
         from kokoro_onnx import Kokoro
         _kok = Kokoro(f"{TTS}/kokoro-v1.0.onnx", f"{TTS}/voices-v1.0.bin")
-    s, sr = _kok.create(text, voice=VOICE, speed=SPEED, lang=LANG)
+    s, sr = _piper(text) if VOICE.startswith("piper:") else _kok.create(text, voice=VOICE, speed=SPEED, lang=LANG)
     # trim leading/trailing silence
     nz = np.where(np.abs(s) > 0.01)[0]
     if len(nz): s = s[max(0, nz[0] - 600): nz[-1] + 1200]
