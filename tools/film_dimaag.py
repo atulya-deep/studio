@@ -103,15 +103,15 @@ def d_end(cr, lt, d, t):
 
 BEATS = [
     dict(say="अबे चूतिये, तेरा दिमाग डेढ़ किलो का भी नहीं है।", cap="Abe *chutiye*, tera dimaag *dedh kilo* ka bhi nahi hai.", scene=d_hook),
-    dict(say="बॉडी का सिर्फ़ दो परसेंट। फिर भी साला बीस परसेंट एनर्जी खा जाता है।", cap="Body ka sirf *2%*. Phir bhi saala *20% energy* kha jaata hai.", scene=d_pct),
-    dict(say="तू सोफ़े पे पड़ा रहे, तब भी ये बीस वॉट का बल्ब जलता रहता है।", cap="Tu sofe pe pada rahe, tab bhi ye *20 watt* ka bulb jalta rehta hai.", scene=d_bulb),
-    dict(say="इतनी बिजली फूँक के भी, तू चाबी कहाँ रखी भूल जाता है, गधे।", cap="Itni bijli phoonk ke bhi tu *chaabi* kahan rakhi bhool jaata hai, *gadhe*.", scene=d_keys),
-    dict(say="और एक्स का नंबर? वो साला आज भी याद है।", cap="Aur *ex ka number*? Wo saala aaj bhi *yaad* hai.", scene=d_ex),
-    dict(say="उस बकचोद दोस्त को भेज, जिसका दिमाग बस बिजली का बिल बढ़ाता है।", cap="Us *bakchod* dost ko bhej jiska dimaag bas *bijli ka bill* badhata hai.", scene=d_end, hold=0.3),
+    dict(say="बॉडी का सिर्फ़ दो परसेंट है, फिर भी ये हरामी बीस परसेंट एनर्जी खा जाता है।", cap="Body ka sirf *2%* hai, phir bhi ye *harami* *20% energy* kha jaata hai.", scene=d_pct),
+    dict(say="तू लौड़े की तरह सोफ़े पे पड़ा रहे, तब भी बीस वॉट का बल्ब जलता रहता है।", cap="Tu *laude* ki tarah sofe pe pada rahe, tab bhi *20 watt* ka bulb jalta rehta hai.", scene=d_bulb),
+    dict(say="इतनी बिजली फूँक के भी चाबी कहाँ रखी भूल जाता है, झाटू साला।", cap="Itni bijli phoonk ke bhi *chaabi* kahan rakhi bhool jaata hai, *jhaatu saala*.", scene=d_keys),
+    dict(say="और एक्स का नंबर? वो कमीना आज भी याद है, क्या चूतियापा है।", cap="Aur *ex ka number*? Wo kamina aaj bhi *yaad* hai, kya *chutiyapa* hai.", scene=d_ex),
+    dict(say="उस बकचोद दोस्त को भेज, जिसका दिमाग घंटा कुछ नहीं करता, बस बिजली का बिल बढ़ाता है।", cap="Us *bakchod* dost ko bhej jiska dimaag *ghanta* kuch nahi karta, bas *bijli ka bill* badhata hai.", scene=d_end, hold=0.3),
 ]
 
 if __name__ == "__main__":
-    f = Film("20_dimaag", BEATS, voice=("piper:rohan", 1.08, "hi"))
+    f = Film("20_dimaag", BEATS, voice=("piper:rohan", 1.0, "hi"))
     if "--stills" in sys.argv:
         from PIL import Image
         ts = [0.0, 1.5]

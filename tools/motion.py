@@ -49,7 +49,8 @@ class Film:
         self.b = []; t0 = 0.0
         for i, b in enumerate(beats):
             p = f"{self.out}/n{i}.wav"; animate.speak(b["say"], p); a, sr = sf.read(p)
-            a = animate._tighten(np.asarray(a, dtype=np.float32), sr, keep=.13)
+            a = np.asarray(a, dtype=np.float32)
+            if not voice[0].startswith("piper:"): a = animate._tighten(a, sr, keep=.13)  # piper audio is already smoothed in animate._piper
             off = LEAD0 if i == 0 else 0.0; sd = len(a) / sr; d = off + sd + GAP + b.get("hold", 0.0)
             chs = chunks(b["cap"]); wt = word_times(b["cap"], off, off + sd)
             if i == 0:  # the hook's first words are on screen from frame 0

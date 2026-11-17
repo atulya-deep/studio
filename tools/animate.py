@@ -157,18 +157,22 @@ def _piper(text):
     n = int(len(s) * 24000 / sr0)
     s = np.interp(np.linspace(0, len(s) - 1, n), np.arange(len(s)), s).astype(np.float32)
     s = s / max(1e-6, np.abs(s).max()) * 0.7
-    return _tighten(s, 24000), 24000
+    return _tighten(s, 24000, keep=0.22, min_gap=0.30), 24000
 
-def _tighten(s, sr, keep=0.15, thr=0.02):
-    """Shorten every internal pause to `keep` seconds so narration flows instead of stopping after each phrase."""
+def _tighten(s, sr, keep=0.15, thr=0.02, min_gap=None):
+    """Shorten internal pauses longer than `min_gap` (default: keep) to `keep` seconds, with short fades at the cut.
+    A high min_gap leaves the natural short gaps inside words alone, which keeps speech smooth."""
+    if min_gap is None: min_gap = keep
     w = int(sr * 0.02); env = np.convolve(np.abs(s), np.ones(w) / w, "same"); q = env < thr
-    out, i, n, k = [], 0, len(s), int(keep * sr)
+    out, i, n, k, mg, fd = [], 0, len(s), int(keep * sr), int(min_gap * sr), int(sr * 0.012)
     while i < n:
         j = i
         if q[i]:
             while j < n and q[j]: j += 1
             seg = s[i:j]
-            if len(seg) > k and i > 0 and j < n: seg = np.concatenate([seg[:k // 2], seg[len(seg) - (k - k // 2):]])
+            if len(seg) > mg and i > 0 and j < n:
+                a, b = seg[:k // 2].copy(), seg[len(seg) - (k - k // 2):].copy()
+                a[-fd:] *= np.linspace(1, 0, fd); b[:fd] *= np.linspace(0, 1, fd); seg = np.concatenate([a, b])
             out.append(seg)
         else:
             while j < n and not q[j]: j += 1
