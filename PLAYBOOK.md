@@ -48,3 +48,6 @@ Hinglish roast films in motion style: see `tools/film_dimaag.py` (voice `piper:r
 
 ## Batch 2026-12-14 (films 22-24)
 Three motion-style films, one per pillar: `tools/film_peak.py` (22_peak_end), `tools/film_bundle.py` (23_temptation_bundling), `tools/film_cannae.py` (24_cannae). `film_peak.sheet(f)` writes a 12-frame contact sheet (`--stills`). New props: ice bucket + `submerge` (hand in water), thermometer, stopwatch, headphones, locker, treadmill, couch, top-down battle map (`film_cannae.battle`, phases 0-3) with a colour legend.
+
+## Batch 2026-12-14 (films 33-35)
+Motion-style films, one per pillar: `tools/film_franklin.py` (33_franklin, Ben Franklin effect), `tools/film_fresh.py` (34_fresh_start, Dai/Milkman/Riis 2014), `tools/film_pyrrhic.py` (35_pyrrhic, Plutarch's Pyrrhus). Each runs `--stills` for a 12-frame sheet. New props: Franklin (grey hair, specs) + tricorn rival, rare book/note, coin, favour meter, calendar page (`film_fresh.calendar`), search bar, spike chart, gym/treadmill reuse, crowned king Pyrrhus + Epirote hoplite, cracking trophy, Roman gate, casualty scoreboard.
